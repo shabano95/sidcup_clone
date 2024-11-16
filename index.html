@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+  rel="stylesheet"
+/>
+  <link href="style.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    *::selection{
+        background-color: #fff;
+        color: #95C11E;
+    }
+    /* body::-webkit-scrollbar{
+        display: block;
+        background-color: #000;
+        width: 18px;
+    }
+    body::-webkit-scrollbar-thumb{
+        background-color: #95C11E;
+        border-top: #95C11E 2px solid;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    } */
+    #page_1 h1{
+        -webkit-text-stroke: 2px #95C11E;
+        text-transform: uppercase;
+    }
+    #page_1 h1::before{
+        -webkit-text-stroke: transparent;
+        text-transform: uppercase;
+    }
+    #scroller {
+        overflow-x: auto;
+        overflow-y: hidden;
+        position: relative;
+        z-index: 10;
+    }
+    #scroller::-webkit-scrollbar{
+        display: none;
+    }
+    #scroll_in {
+        animation-name: mover;
+        animation-duration: 30s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    #scroller h4{
+        font-size: 120px;
+        font-weight: 900;
+        margin-right: 30px;
+        color: transparent;
+        transition: all;
+        transition-duration: 2s;
+        -webkit-text-stroke: 2px white;
+    }
+    #scroller h4:hover{
+        color: #95C11E;
+    }
+    .card:hover {
+        transform: rotate3d(-1,1,0,20deg);
+    }
+    @keyframes mover {
+        from{
+            transform: translateX(0);
+        }
+        to{
+            transform: translateX(-100%);
+        }
+        
+    }
+    #page4 h1{
+        -webkit-text-stroke: 2px #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #page_1 #arrow{
+        height: 120px;
+        width: 120px;
+        background-color: transparent;
+        border: 2px #95C11E solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: -1%;
+        bottom: 5%;
+        z-index: 99;
+        border-radius: 50%;
+        transition: all;
+        transition-duration: 1s;
+        transition-timing-function: ease-in;
+    }
+    #page_1 #arrow i{
+        font-size: 50px;
+    }
+    #page_1 #arrow:hover{
+        scale: 0.4;
+        background-color: #95C11E;
+    }
+    #tilted {
+        overflow-x: auto;
+        overflow-y: hidden;
+        position: relative;
+        z-index: 10;
+    }
+    #tilted::-webkit-scrollbar{
+        display: none;
+    }
+    #img_show{
+        animation-name: show;
+        animation-duration: 30s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite; 
+    }
+    #img_show img{
+        transition: all;
+        transition-duration: 2s;
+    }
+    @keyframes show {
+        from{
+            transform: translateX(0);
+        }
+        to{
+            transform: translateX(-100%);
+        }
+        
+    }
+  </style>
+</head>
+<body class="text-white font-monta perspec">
+    <!-- navbar -->
+    <div id="nav" class="h-28 w-full flex items-center justify-start px-40 gap-10 fixed z-99">
+        <img class="h-20 w-24" src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/logo-white.svg" alt="">
+        <h4 class="font-monta font-medium text-[18px] uppercase">Toptracer Range</h4>
+        <h4 class="font-monta font-medium text-[18px] uppercase">Golf Lessons</h4>
+        <h4 class="font-monta font-medium text-[18px] uppercase">Adventure Golf</h4>
+        <h4 class="font-monta font-medium text-[18px] uppercase">Café</h4>
+        <h4 class="font-monta font-medium text-[18px] uppercase">Events</h4>
+    </div>
+    <!-- cursor part -->
+        <div id="cursor" class="h-5 w-5 bg-color1 rounded-full fixed z-99"></div>
+        <div id="cursor_blur" class="blur-3xl h-[300px] w-[300px] bg-[#96c11e8d] rounded-full fixed z-10"></div>
+    <!-- video part -->
+        <video autoplay muted loop class="object-cover h-[100%] w-[100%] fixed -z-10" src="img/SFG-Website-Header-Video-0823 (1).mp4"></video>
+        <!-- content on main screen -->
+            <div id="main" class="relative bg-[#00000053]">
+                <!-- page1 -->
+                <div id="page_1" class="h-[100vh] w-[100vw] relative flex justify-center items-center flex-col text-center">
+                    <h1 class=" z-50 uppercase text-black stroke-2 stroke-green text-[140px] font-[900] relative before:content-['eat.drink.play.'] before:absolute before:text-white before:top-1 before:left-1 ">eat.drink.play.</h1>
+                    <h2 class=" z-50 font-extrabold text-3xl my-5">Welcome to Sidcup Family Golf!</h2>
+                    <p class=" z-50 font-medium w-2/5">Sidcup Family Golf is a Toptracer driving range and crazy golf venue in Sidcup, South East London. Passionate about technology, player development and making golf fun and accessible to everyone.</p>
+                    <!-- arrow_green -->
+                    <div id="arrow"><i class="ri-arrow-down-line"></i></div>
+                </div>
+                <!-- page2 -->
+                <div id="page_2" class="min-h-[100vh] w-[100vw]">
+                    <!-- page2 scroller slider -->
+                    <div id="scroller" class="flex whitespace-nowrap ">
+                        <div id="scroll_in" class="flex whitespace-nowrap">
+                            <h4 class="inline-block">Toptracer Range</h4>
+                            <h4 class="inline-block">Golf Lessons</h4>
+                            <h4 class="inline-block">Adventure Golf</h4>
+                            <h4 class="inline-block">Café</h4>
+                            <h4 class="inline-block">Events</h4>
+                        </div>
+                        <div id="scroll_in" class="flex whitespace-nowrap">
+                            <h4 class="inline-block">Toptracer Range</h4>
+                            <h4 class="inline-block">Golf Lessons</h4>
+                            <h4 class="inline-block">Adventure Golf</h4>
+                            <h4 class="inline-block">Café</h4>
+                            <h4 class="inline-block">Events</h4>
+                        </div>
+                    </div>
+                    <!-- page2 2nd part -->
+                    <div id="about_us" class="flex justify-around items-cente h-[352px] w-full relative z-10">
+                        <img class="object-cover h-[300px] w-[200px] rounded-2xl" src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-1.jpg?strip=all&lossy=1&sharp=1&w=384&ssl=1" alt="">
+                        <div id="about_us_in" class=" h-full w-1/2 text-center">
+                            <h2 class="text-4xl font-black uppercase ">About Us</h2>
+                            <div class="mt-8 flex flex-col items-center justify-center ">
+                                <p class="text-lg w-3/4 text-center">Home to a 46-bay, multi-tier, floodlit driving range, powered by Toptracer Range technology. Complimented by a practice green and bunker, coffee shop and American Golf Store. There truly is something for everyone as we also boast two outdoor 18-hole dinosaur themed crazy golf courses.</p>
+                            <p class="text-lg mt-7 w-3/4 text-center object-cover rounded-2xl">Please note: we are a cashless venue. The range closes at 10pm with last balls at 9pm.</p>
+                            </div>
+                        </div>
+                        <img class="object-cover h-[300px] w-[200px] rounded-2xl" src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-about-2.jpg?strip=all&lossy=1&sharp=1&w=384&ssl=1" alt="">
+                    </div>
+                    <!-- page2 3rd part -->
+                        <div id="cards_container" class=" h-[85vh] w-full flex items-center justify-center gap-20 z-10 relative">
+                            <!-- <img class="h-20 w-28 " src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-white.svg" alt=""> -->
+                            <div id="card-1" class="card overflow-hidden h-4/5 w-3/12 rounded-3xl bg-cover bg-center hover:transform-3d" style="background-image: url('https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-1024x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1');">
+                                <div id="overlay" class="h-full w-full bg-color1 text-black px-12 opacity-0 hover:opacity-100 hover:transition-all hover:duration-300 hover:ease-linear">
+                                    <h2 class=" text-black text-[40px] font-black leading-10">Toptracer Range</h2>
+                                    <p class=" text-black text-lg">Looking for somewhere to enjoy quality time with friends and family or simply have some “me” time.</p>
+                                    <p class=" text-black text-lg mt-7">Our floodlit 46-bay multi-tier range features market leading technology in Toptracer that everyone can enjoy. Open until late all week, nothing quite beats a chilled evening session on the range with food and drinks delivered straight </p>
+                                </div>
+                            </div>
+                            <div id="card-2" class="card overflow-hidden h-4/5 w-3/12 rounded-3xl bg-cover bg-center" style="background-image: url('https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4.jpg?strip=all&lossy=1&sharp=1&ssl=1');">
+                                    <div id="overlay" class="h-full w-full bg-color1 text-black px-12 opacity-0 hover:opacity-100 hover:transition-all hover:duration-300 hover:ease-linear">
+                                    <h2 class=" text-black text-[40px] font-black leading-10">Toptracer Range</h2>
+                                    <p class=" text-black text-lg">Looking for somewhere to enjoy quality time with friends and family or simply have some “me” time.</p>
+                                    <p class=" text-black text-lg mt-7">Our floodlit 46-bay multi-tier range features market leading technology in Toptracer that everyone can enjoy. Open until late all week, nothing quite beats a chilled evening session on the range with food and drinks delivered straight </p>
+                                </div>
+                            </div>
+                            <div id="card-3" class="card overflow-hidden h-4/5 w-3/12 rounded-3xl bg-cover bg-center" style="background-image: url('https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-1024x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1');">
+                                        <div id="overlay" class="h-full w-full bg-color1 text-black px-12 opacity-0 hover:opacity-100 hover:transition-all hover:duration-300 hover:ease-linear">
+                                    <h2 class=" text-black text-[40px] font-black leading-10">Toptracer Range</h2>
+                                    <p class=" text-black text-lg">Looking for somewhere to enjoy quality time with friends and family or simply have some “me” time.</p>
+                                    <p class=" text-black text-lg mt-7">Our floodlit 46-bay multi-tier range features market leading technology in Toptracer that everyone can enjoy. Open until late all week, nothing quite beats a chilled evening session on the range with food and drinks delivered straight </p>
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- page2 4th part -->
+                        <div id="green_div" class="h-[260px] w-full bg-gradient-to-tr from-color1 to-color2 flex justify-between items-center">
+                            <img class="h-full w-[333px] rotate-180 object-cover" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt="">
+                            <div class="row h-[149px] w-full flex items-center justify-center">
+                                <h4 class="text-3xl font-extrabold w-[52%] text-center uppercase text-black">Sign up for Sidcup News and Special Offers
+                                    Straight to Your Inbox</h4>
+                            </div>
+                            <img class="h-full w-[333px] object-cover " src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt="">
+                        </div>
+                </div>
+                
+                <div id="page_3" class="h-[100vh] w-[100vw] bg-[#000 flex content-center justify-center items-center relative">
+                    <p class="text-2xl font-bold w-1/2 leading-10 text-center">Excellent couple of hours, relax and enjoy in the fun. Staff were accommodating, friendly and very helpful. Café on site for refreshments etc. Will keep children enterntained during the holidays. Worth a visit if you haven’t been.</p>
+                    <img id="upper" class="h-16 w-16 absolute left-[20%] top-[30%] " src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg" alt="">
+                    <img id="below" class="h-16 w-16 absolute right-[20%] bottom-[30%] " src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg" alt="">
+                </div>
+                  <!-- page4 -->
+             <div id="page4" class="h-[35vh] w-[100vw] flex justify-center items-center content-center gap-10 relative">
+                <h1 class="absolute text-[80px] font-black top-[-11%] text-black ">WHAT ARE YOU WAITING FOR?</h1>
+             <div class="elam h-[65%] w-[25%] overflow-hidden rounded-3xl relative group">
+                <h3 class="absolute z-10 uppercase group-hover:bg-transparent hover:text-white transition-all duration-100 ease-linear h-full w-full bg-color1 text-center text-[27px] font-black flex justify-center items-center text-black"> toptracer Range</h3>
+                <img class=" scale-110 group-hover:scale-100 h-[100%] w-[100%] object-cover" src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-toptracer.jpg?strip=all&lossy=1&sharp=1&w=1152&ssl=1" alt="">
+             </div>
+             <div class="elam h-[65%] w-[25%] overflow-hidden rounded-3xl relative group">
+                <h3 class="absolute z-10 uppercase group-hover:bg-transparent hover:text-white transition-all duration-100 ease-linear h-full w-full bg-color1 text-center text-[27px] font-black flex justify-center items-center text-black">Golf Lessons</h3>
+                <img class=" scale-110 group-hover:scale-100 h-[100%] w-[100%] object-cover" src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-lessons.jpg?strip=all&lossy=1&sharp=1&w=1152&ssl=1" alt="">
+             </div>
+             <div class="elam h-[65%] w-[25%] overflow-hidden rounded-3xl relative group">
+                <h3 class="absolute z-10 uppercase group-hover:bg-transparent hover:text-white transition-all duration-100 ease-linear h-full w-full bg-color1 text-center text-[27px] font-black flex justify-center items-center text-black">Adventure Golf</h3>
+                <img class=" scale-125 group-hover:scale-100 h-[100%] w-[100%] object-cover" src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/page-ag.jpg?strip=all&lossy=1&sharp=1&w=1152&ssl=1" alt="">
+             </div>
+            </div>
+          <!-- footer -->
+           <div id="footer" class="h-[64vh] w-[100vw] bg-gradient-to-tr from-color1 to-color2 relative z-99 flex flex-col justify-center items-center ">
+            <div class="w-full h-full py-10 mt-10 flex justify-center items-center">
+                <img class="object-cover h-[367px] w-[295px] absolute left-1 z-10" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-footer.svg" alt="">
+            <div class=" h-full w-1/6 z-20 inline-block justify-start items-center space-y-36 ">
+                <a href="#"><img class=" h-[110px] w-[150px] flex items-start" src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/logo-white.svg" alt=""> </a>
+                <ul class="flex gap-[10px]">
+                    <li><i class="text-3xl text-black fill-black rounded-2xl ri-facebook-box-line"></i></li>
+                    <li><i class="text-3xl text-black fill-black rounded-2xl ri-instagram-line"></i></li>
+                </ul>
+            </div>
+            <div class=" h-full w-[40%] z-20 flex">
+                <ul class="h-full w-2/4 space-y-2">
+                    <li class="w-full text-3xl font-black h-10 text-black" ><a class="font-black" href="#"></a>Toptracer Range</li>
+                    <li class="w-full text-3xl font-black h-10 text-black" ><a class="font-black" href="#"></a>Crazy Golf</li>
+                    <li class="w-full text-3xl font-black h-10 text-black" ><a class="font-black" href="#"></a>Café</li>
+                </ul>
+                <ul class="h-full w-2/4 space-y-2">
+                    <li class="w-full text-3xl font-black h-10 text-black" ><a class="font-black" href="#"></a>Events</li>
+                    <li class="w-full text-3xl font-black h-10 text-black" ><a class="font-black" href="#"></a>Golf Lessons</li>
+                    <li class="w-full text-3xl font-black h-10 text-black" ><a class="font-black" href="#"></a>Contact Us</li>
+                </ul>
+            </div>
+            <div class=" h-full w-1/6 z-20">
+                <p class="font-extrabold text-xl text-black">A20, Sidcup Bypass <br>
+                    Chislehurst <br>
+                    Kent
+                    BR7 6RP</p>
+                <p class="font-extrabold text-xl text-black">Tel: <a href="#"> 0208 309 0181</a> </p>
+                <p class="font-black text-2xl text-black">Get Directions</p>
+            </div>
+            </div>
+            <div class=" h-12 w-full flex justify-center items-center gap-2 text-black font-medium text-[14px] mb-10">
+            <p>Copyright © 2023 Adventure Leisure Ltd. All rights reserved.</p> <div>|</div>
+            <a href="#">Privacy Policy</a> <div>|</div>
+            <a href="#">Terms And Conditions</a> <div>|</div>
+            <a href="#">Gender Pay Gap</a> <div>|</div>
+            <p class="ml-32">Web Design London</p>
+            </div>
+           </div>
+
+            
+            
+            
+            
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</body>
+</html>
